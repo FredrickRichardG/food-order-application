@@ -1,0 +1,59 @@
+-------------------------------------------------------------------------------
+Test set: com.foodorder.usermanagement.integration.UserIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 1.519 s <<< FAILURE! -- in com.foodorder.usermanagement.integration.UserIntegrationTest
+com.foodorder.usermanagement.integration.UserIntegrationTest.changePassword_Success -- Time elapsed: 0.289 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.foodorder.usermanagement.integration.UserIntegrationTest.setUp(UserIntegrationTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.integration.UserIntegrationTest.getCurrentUser_Unauthorized -- Time elapsed: 0.337 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.foodorder.usermanagement.integration.UserIntegrationTest.setUp(UserIntegrationTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.integration.UserIntegrationTest.updateUser_InvalidData_ReturnsBadRequest -- Time elapsed: 0.296 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.foodorder.usermanagement.integration.UserIntegrationTest.setUp(UserIntegrationTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.integration.UserIntegrationTest.getCurrentUser_Success -- Time elapsed: 0.279 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.foodorder.usermanagement.integration.UserIntegrationTest.setUp(UserIntegrationTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.integration.UserIntegrationTest.updateUser_Success -- Time elapsed: 0.284 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.foodorder.usermanagement.integration.UserIntegrationTest.setUp(UserIntegrationTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
