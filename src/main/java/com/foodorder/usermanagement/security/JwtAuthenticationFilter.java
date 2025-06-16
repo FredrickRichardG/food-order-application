@@ -70,7 +70,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         || path.startsWith("/webjars")
         || path.equals("/swagger-ui.html")
         || path.startsWith("/api/v1/auth")
-            || path.startsWith("/error")
             || path.contains("favicon"); // also skip your login/signup APIs if needed
 }
 } 
