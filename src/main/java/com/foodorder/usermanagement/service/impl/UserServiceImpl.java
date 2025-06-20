@@ -11,6 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.access.AccessDeniedException;
+import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
 
@@ -53,6 +55,21 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User updateUser(Long id, User userDetails) {
+        // Authorization check: only the user or admin can update
+        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        User currentUser = userRepository.findByEmail(currentUserEmail)
+            .orElseThrow(() -> new ResourceNotFoundException("Current user not found"));
+        if (!currentUser.getId().equals(id) && !currentUser.getRoles().stream().anyMatch(r -> r.getName().equals("ADMIN"))) {
+            throw new AccessDeniedException("Not authorized to update this user");
+        }
+        // Input validation
+        if (userDetails.getEmail() != null && !EmailValidator.getInstance().isValid(userDetails.getEmail())) {
+            throw new IllegalArgumentException("Invalid email format");
+        }
+        if (userDetails.getPassword() != null && userDetails.getPassword().length() < 8) {
+            throw new IllegalArgumentException("Password must be at least 8 characters");
+        }
+        // TODO: Add rate limiting and logging for updateUser
         User user = getUserById(id);
         
         // Update fields only if they are not null
@@ -106,6 +123,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteUser(Long id) {
+        // Authorization check: only the user or admin can delete
+        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        User currentUser = userRepository.findByEmail(currentUserEmail)
+            .orElseThrow(() -> new ResourceNotFoundException("Current user not found"));
+        if (!currentUser.getId().equals(id) && !currentUser.getRoles().stream().anyMatch(r -> r.getName().equals("ADMIN"))) {
+            throw new AccessDeniedException("Not authorized to delete this user");
+        }
+        // TODO: Add rate limiting and logging for deleteUser
         if (!userRepository.existsById(id)) {
             throw new ResourceNotFoundException("User not found");
         }
@@ -115,6 +140,17 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void changePassword(Long id, String oldPassword, String newPassword) {
+        // Authorization check: only the user or admin can change password
+        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        User currentUser = userRepository.findByEmail(currentUserEmail)
+            .orElseThrow(() -> new ResourceNotFoundException("Current user not found"));
+        if (!currentUser.getId().equals(id) && !currentUser.getRoles().stream().anyMatch(r -> r.getName().equals("ADMIN"))) {
+            throw new AccessDeniedException("Not authorized to change password for this user");
+        }
+        if (newPassword == null || newPassword.length() < 8) {
+            throw new IllegalArgumentException("New password must be at least 8 characters");
+        }
+        // TODO: Add rate limiting and logging for changePassword
         User user = getUserById(id);
         if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
             throw new IllegalArgumentException("Invalid old password");
