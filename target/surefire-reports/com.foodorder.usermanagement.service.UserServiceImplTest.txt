@@ -1,0 +1,100 @@
+-------------------------------------------------------------------------------
+Test set: com.foodorder.usermanagement.service.UserServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 3, Errors: 6, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! -- in com.foodorder.usermanagement.service.UserServiceImplTest
+com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_SellerProfile -- Time elapsed: 0.059 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:59)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_SellerProfile(UserServiceImplTest.java:240)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.changePassword_Success -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.changePassword(UserServiceImpl.java:144)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.changePassword_Success(UserServiceImplTest.java:285)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_PartialFields -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:59)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_PartialFields(UserServiceImplTest.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.deleteUser_Success -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.deleteUser(UserServiceImpl.java:127)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.deleteUser_Success(UserServiceImplTest.java:260)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_EmptyFields -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:59)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_EmptyFields(UserServiceImplTest.java:215)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.deleteUser_NotFound -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <com.foodorder.usermanagement.exception.ResourceNotFoundException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.deleteUser_NotFound(UserServiceImplTest.java:273)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.deleteUser(UserServiceImpl.java:127)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.lambda$deleteUser_NotFound$3(UserServiceImplTest.java:273)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+
+com.foodorder.usermanagement.service.UserServiceImplTest.changePassword_InvalidOldPassword -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.changePassword_InvalidOldPassword(UserServiceImplTest.java:299)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.changePassword(UserServiceImpl.java:144)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.lambda$changePassword_InvalidOldPassword$4(UserServiceImplTest.java:300)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+
+com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_AllFields -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:59)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_Success_AllFields(UserServiceImplTest.java:139)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_NotFound -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <com.foodorder.usermanagement.exception.ResourceNotFoundException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.updateUser_NotFound(UserServiceImplTest.java:199)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because the return value of "org.springframework.security.core.context.SecurityContext.getAuthentication()" is null
+	at com.foodorder.usermanagement.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:59)
+	at com.foodorder.usermanagement.service.UserServiceImplTest.lambda$updateUser_NotFound$2(UserServiceImplTest.java:199)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+

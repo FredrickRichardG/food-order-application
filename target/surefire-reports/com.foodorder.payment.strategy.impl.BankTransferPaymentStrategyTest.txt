@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.foodorder.payment.strategy.impl.BankTransferPaymentStrategyTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.foodorder.payment.strategy.impl.BankTransferPaymentStrategyTest
